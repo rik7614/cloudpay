@@ -165,7 +165,7 @@ resource "aws_route_table_association" "public_subnet_association" {
 
 #S3 Bucket for state file
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-cloudpay01"
+  bucket = "my-terraform-state-bucket-cloudpay-02"
   acl    = "private"
 
   versioning {
@@ -187,7 +187,7 @@ resource "aws_s3_bucket" "terraform_state" {
 
 #DynamoDB table for state locking
 resource "aws_dynamodb_table" "terraform_state_lock" {
-  name         = "terraform-state-lock-01"
+  name         = "terraform-state-lock-"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
   attribute {
@@ -329,7 +329,7 @@ resource "aws_db_instance" "app_db" {
 
 
 resource "aws_db_subnet_group" "db_subnet_group" {
-  name       = "rds-subnet-group-01"
+  name       = "rds-subnet-group"
   subnet_ids = [
     aws_subnet.private_subnet.id,
     aws_subnet.another_private_subnet.id   # Add another subnet in a different AZ
