@@ -163,11 +163,9 @@ resource "aws_route_table_association" "public_subnet_association" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-
-
 #S3 Bucket for state file
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-cloudpay"
+  bucket = "my-terraform-state-bucket-cloudpay01"
   acl    = "private"
 
   versioning {
@@ -186,6 +184,7 @@ resource "aws_s3_bucket" "terraform_state" {
     Name = "TerraformStateBucket"
   }
 }
+
 #DynamoDB table for state locking
 resource "aws_dynamodb_table" "terraform_state_lock" {
   name         = "terraform-state-lock-01"
