@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
 }
 
 # VPC
@@ -14,7 +14,7 @@ resource "aws_vpc" "app_vpc" {
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.app_vpc.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-east-1a"
+  availability_zone       = "us-east-2a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -25,7 +25,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.app_vpc.id
   cidr_block        = "10.0.2.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-2b"
   tags = {
     Name = "PrivateSubnet"
   }
@@ -35,7 +35,7 @@ resource "aws_subnet" "private_subnet" {
 resource "aws_subnet" "another_public_subnet" {
   vpc_id            = aws_vpc.app_vpc.id
   cidr_block        = "10.0.3.0/24"
-  availability_zone = "us-east-1c"  # Different AZ
+  availability_zone = "us-east-2c"  # Different AZ
   tags = {
     Name = "AnotherPublicSubnet"
   }
@@ -45,7 +45,7 @@ resource "aws_subnet" "another_public_subnet" {
 resource "aws_subnet" "another_private_subnet" {
   vpc_id            = aws_vpc.app_vpc.id
   cidr_block        = "10.0.4.0/24"
-  availability_zone = "us-east-1c"  # Different AZ
+  availability_zone = "us-east-2c"  # Different AZ
   tags = {
     Name = "AnotherPrivateSubnet"
   }
