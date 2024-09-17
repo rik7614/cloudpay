@@ -167,7 +167,7 @@ resource "aws_route_table_association" "public_subnet_association" {
 
 #S3 Bucket for state file
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-cloudpay01"
+  bucket = "my-terraform-state-bucket-cloudpay"
   acl    = "private"
 
   versioning {
