@@ -1,2 +1,2 @@
 # cloudpay
-for interview cicd with terraform
+cloudpay interview
